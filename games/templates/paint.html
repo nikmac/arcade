@@ -1,0 +1,33 @@
+{% load staticfiles %}
+
+<script type="text/javascript" src="{% static 'js/paint.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/paint.css' %}">
+
+<li id="putPaintHere">
+    <h1>Paint</h1>
+
+    <div id="colors"></div>
+    <div id="color_form">
+        <input type="text" id="color_field" >
+        <button id="add_color">Add color</button>
+        <button id="eraser">Eraser</button>
+        <button id="reset">Reset</button>
+        <input type="radio" name="size" value="5" checked>5
+        <input type="radio" name="size" value="5">10
+        <input type="radio" name="size" value="5">15
+    </div>
+    <div id="image_form"></div>
+    <div id="images"></div>
+    <canvas width="500" height="300"></canvas>
+
+    <button class="closeGame">Close Game</button>
+</li>
+
+
+<script type="text/javascript">
+         $('button.closeGame').on('click', function () {
+           alert("Thank you for playing Paint!");
+            $('#putPaintHere').html('');
+
+        });
+    </script>

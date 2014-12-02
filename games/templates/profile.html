@@ -1,0 +1,30 @@
+{% extends "base_template.html" %}
+
+{% block title %}{% endblock title %}
+
+{% block link %} {% endblock link %}
+
+{% block content %}
+<section>
+        <h1 class="welcome">Welcome to your Profile, {{ user.username | capfirst }}</h1>
+{#        <h3><a href="{% url 'new_event' %}">Add a Date</a> or#}
+{#        <a href="{% url 'home' %}">Browse for ideas</a></h3>#}
+        <section id="lists">
+            <ul id="gallery">
+                <h3>Games</h3>
+                {% for d in games %}
+                    <li>
+                        <h4>{{ d.name }}</h4>
+{#                        <p>{{ d.score }},
+                    </li>
+                {% endfor %}
+
+            </ul>
+        </section>
+</section>
+
+
+
+{% endblock content %}
+
+

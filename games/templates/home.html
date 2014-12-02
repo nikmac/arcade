@@ -1,0 +1,76 @@
+{% extends "base_template.html" %}
+
+
+{% block content %}
+
+
+
+
+    <h1 class="welcome">Welcome To Arcade</h1>
+
+
+    <section id="primary">
+        <h3> Check out our Games</h3>
+        <ul>
+            <li><button id="playSnake">Play Snake </button></li>
+            <li id="putSnakeHere"></li>
+            <li><button id="playPaint">Paint</button></li>
+            <li id="putPaintHere"></li>
+            <li><button id="playPokemon">Play Pokemon</button></li>
+            <li id="putPokemonHere"></li>
+
+        </ul>
+    </section>
+
+    <script type="text/javascript">
+
+        $('#playSnake').on('click', function () {
+            $.ajax({
+                url: '/snake/',
+                type: 'GET',
+                success: function (data) {
+                    console.log(data);
+                    $('#putSnakeHere').html(data);
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            });
+        });
+
+        $('#playPaint').on('click', function () {
+            $.ajax({
+                url: '/paint/',
+                type: 'GET',
+                success: function (data) {
+                    console.log(data);
+                    $('#putPaintHere').html(data);
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            });
+        });
+
+        $('#playPokemon').on('click', function () {
+            $.ajax({
+                url: '/pokemon/',
+                type: 'GET',
+                success: function (data) {
+                    console.log(data);
+                    $('#putPokemonHere').html(data);
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            });
+         });
+    </script>
+    <section id="secondary">
+        <ul>
+            <li><a href="{% url "login" %}">Login</a> or <a href="{% url "register" %}">Register</a></li>
+            To start playing
+        </ul>
+    </section>
+
+{% endblock content %}
